@@ -9,13 +9,17 @@ Sekretariat
 
 /listSuratSakit
 
-/suratSakit/Terima
+/DetilSuratSakit/{NPM+ID}
 
-/suratSakit/Tolak
+/suratSakit/{NPM+ID}/Terima
+
+/suratSakit/{NPM+ID}/Tolak
 
 Mahasiswa
 
 /listSuratSakit
+
+/DetilSuratSakit/{ID}
 
 /kirimSuratSakit
 
