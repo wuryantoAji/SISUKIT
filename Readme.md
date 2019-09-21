@@ -1,16 +1,22 @@
-# HR and Payroll System
+# SISUKIT
 
 ## URL  
 General
+
 /Login
 
 Sekretariat
+
 /listSuratSakit
+
 /suratSakit/Terima
+
 /suratSakit/Tolak
 
 Mahasiswa
+
 /listSuratSakit
+
 /kirimSuratSakit
 
 # SISUKIT
@@ -20,6 +26,7 @@ Proyek sistem informasi untuk mengelola, menyimpan dan mengirim surat sakit maha
 ## Getting Started
 
 ### Code Conference
+
 Snake_Case : Aji_Wuryanto
 
 Kalimat tanya sebagai penanda boolean : is_empty
@@ -41,10 +48,12 @@ FLASK
 GITHUB
 
 ### NEED TO LEARN
+
 1. Simpan gambar di DB (flask)
 2. Pagination (flask)
 
 ## Fitur
+
 1. Mahasiswa dapat mengirim surat sakit
 2. Mahasiswa dapat melihat seluruh surat sakit yang pernah dikirim
 3. Sekretariat dapat melihat seluruh surat sakit yang pernah dikirim
