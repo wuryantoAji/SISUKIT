@@ -11,9 +11,9 @@ Sekretariat
 
 /DetilSuratSakit/{NPM+ID}
 
-/suratSakit/{NPM+ID}/Terima
+/suratSakit/{NPM+ID}/Terima -> redirect to detil surat sakit + kasih flag sukses
 
-/suratSakit/{NPM+ID}/Tolak
+/suratSakit/{NPM+ID}/Tolak -> redirect to detil surat sakit + kasih warning
 
 Mahasiswa
 
