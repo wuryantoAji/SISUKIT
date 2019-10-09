@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "header.html" %}
+{% include "navbar.html" %}
+
+    <Title>Kirim Surat Sakit</Title>
+    <!-- main of your body -->
+    <main>
+        <!-- Section body starts Here -->
+        <div class="body-wrapper bs-docs-section clearfix ">
+
+            <!-- content head ;Title and short link/ breadcrumb -->
+            <div>
+                <div class="header">
+                    <div class="text-center">
+                        <h1>Kirim Surat Sakit</h1>
+                    </div>
+                </div>
+                <!-- /head content -->
+                <!-- Content starts Here -->
+                <div class="container">
+                    <div class="text-center">
+                    
+                    <form action="" method="post">
+                        <input type="date" name="tanggal_submit_surat" placeholder="Tanggal Submit Surat Sakit" value="{{request.form.tanggal_submit}}">
+                        
+                        <input type="text" name="nama_penyakit" placeholder="Nama Penyakit" value="{{request.form.nama_penyakit}}">
+                        
+                        <div>
+                            <input type="date" name="tanggal_izin" placeholder="Tanggal Izin" value="{{request.form.tanggal_izin}}">
+                                <div>
+                                    <input type="text" name="mata_kuliah_izin" placeholder="Mata Kuliah Izin" value="{{request.form.nama_penyakit}}">
+                                    <input type="text" name="dosen_mata_kuliah" placeholder="Dosen Mata Kuliah" value="{{request.form.nama_penyakit}}">
+                                </div>
+                        </div>
+
+                        <input class="btn btn-default" type="submit" value="Submit Surat Sakit">
+                    </form>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.Content -->
+
+        </div>
+        <!-- /. Section body -->
+    </main>
+    <!-- /. main -->
+
+
+
+
+{% include "footer.html" %}
+</html>

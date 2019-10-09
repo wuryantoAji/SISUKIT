@@ -1,27 +1,34 @@
 from flask import Flask
+from flask import (
+    Blueprint, flash, g, redirect, render_template, request, session, url_for
+)
 
-app = Flask(__name__)
+bp = Blueprint('sisukit', __name__, url_prefix='/sisukit')
 
-@app.route('/')
-def login():
-    return 'Login'
-
-@app.route('/sekre/listSuratSakit')
+@bp.route('/sekre/listSuratSakit', methods=['GET'])
 def list_surat_sakit_sekre():
-    return 'List Surat Sakit Sekre'
+    return render_template('list-surat-sekre.html')
 
-@app.route('/sekre/detilSuratSakit')
-def detil_surat_sakit_sekre():
-    return 'Detail dari Surat Sakit Mahasiswa {NPM+ID Surat}' 
+@bp.route('/sekre/detilSuratSakit/terima', methods=['POST'])
+def terima_surat_sakit():
+    return redirect('list-surat-sekre.html') 
+
+@bp.route('/sekre/detilSuratSakit/tolak', methods=['POST'])
+def tolak_surat_sakit():
+    return redirect('list-surat-sekre.html')         
     
-@app.route('/mahasiswa/listSuratSakit')       
+@bp.route('/mahasiswa/listSuratSakit', methods=['GET'])       
 def list_surat_sakit_mahasiswa():
-    return 'List Surat Sakit Mahasiswa'
+    return render_template('list-surat-mahasiswa.html')
 
-@app.route('/mahasiswa/detilSuratSakit')
+@bp.route('/mahasiswa/kirimSuratSakit', methods=['GET','POST'])
+def kirim_surat_sakit():
+    return render_template('kirim-surat-sakit.html')    
+
+@bp.route('/mahasiswa/detilSuratSakit')
 def detil_surat_sakit_mahasiswa():
     return 'Detail dari surat sakit mahasiswa {ID}'
 
-@app.route('/mahasiswa/kirimSuratSakit')
-def kirim_surat_sakit():
-    return 'Kirim Surat Sakit Mahasiswa'    
+@bp.route('/sekre/detilSuratSakit')
+def detil_surat_sakit_sekre():
+    return 'Detail dari Surat Sakit Mahasiswa {NPM+ID Surat}' 

@@ -1,82 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<!-- Head; what to be needed to initialize your html -->
-<head>
-    <title>Title</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
-    <link rel="shortcut icon" type="image/png" href="" />
-    <link rel="stylesheet" href="https://desain.cs.ui.ac.id/static/bootstrap/css/bootstrap.min.css" type="text/css" media=screen>
-    <link rel="stylesheet" href="https://desain.cs.ui.ac.id/static/bootstrap/css/responsive.css" type="text/css" media=screen>
-    <link rel="stylesheet" href="https://desain.cs.ui.ac.id/static/font-awesome/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="https://desain.cs.ui.ac.id/static/css/main.css" type="text/css" media=screen>
-    <link rel="stylesheet" href="https://desain.cs.ui.ac.id/static/css/style.css" type="text/css" media=screen>
-</head>
-<!-- /. Head -->
-<!-- Body starts here -->
-<body class="site-wrapper bg-default">
-    <!-- header of your body -->
-    <header>
-        <!-- Navbar Starts Here -->
-        <div class="navbar-wrapper">
-            <div class="container-fullwidth">
-                <nav class="navbar mast-nav-default navbar-static-top fixed-top" id="main-navbar">
-                    <div class="bg-header"><img src="C:\Users\Lenovo\Documents\OSSD\SISUKIT\Aset\logo-vertikal-hitam.png"></div>
-                    <div class="container-global">
-                        <div class="navbar-header">
-                            <button aria-controls="navbar" aria-expanded="false" class=" navbar-toggle collapsed"
-                                    data-target="#navbar" data-toggle="collapse" type="button">
-                                <span class="sr-only">Toggle navigation</span><i class="fa fa-ellipsis-v"
-                                                                                 style="font-size:20px"></i>
-                            </button>
-                            <div class="nav-title"><a class="icon" href="/index">Title</a></div>
-                        </div>
-                        <div class="navbar-collapse collapse nav-flex-icons ml-auto" id="navbar">
-                            <ul class="nav navbar-nav">
-                                <li class="dropdown nav-item">
-                                    <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle nav-link"
-                                       data-toggle="dropdown" href="#" role="button">List Menu 1<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="dir">List Submenu 1</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">List Submenu 2</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/faq">List Menu 2 </a>
-                                </li>
-                            </ul>
-                            <ul class="nav navbar-nav navbar-right" style="padding-right:20px">
-
-                                <li class="dropdown nav-item">
-                                    <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle nav-link"
-                                       data-toggle="dropdown" href="#" role="button">
-                                        aji.wuryanto<span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="#">Profile</a>
-                                        </li>
-                                        <li>
-                                            <a href="/csauth/logout/">Logout</a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <!-- /.Navbar -->
-    </header>
-    <!-- /. header -->
+{% include "header.html" %}
 
 
     <!-- main of your body -->
@@ -86,26 +11,15 @@
             <!-- content head ;Title and short link/ breadcrumb -->
             <div class="header">
                 <div class="text-center">
-                    <h1>Title</h1>
-                    <p>Description</p>
+                    <h1>Selamat Datang di SISUKIT</h1>
+                    <h1>Silahkan Login</h1>
                 </div>
-                <!--
-                <ol class="breadcrumb">
-                    <li>
-                        <a href="#">Home</a>
-                    </li>
-                    <li>
-                        <a href="#">Previous Menu</a>
-                    </li>
-                    <li>Menu</li>
-                </ol>
-                -->
             </div>
             <!-- /head content -->
             <!-- Content starts Here -->
             <div class="container">
-                <div class="text-right">
-                    <ul></ul>
+                <div class="text-center">
+                    
                 </div>
             </div>
             <!-- /.Content -->
@@ -116,35 +30,5 @@
 
 
 
-
-
-    <!-- Footer Starts Here -->
-    <footer>
-        <div id="footer">
-            <!-- Footer Section 1 -->
-            <div class="mastfooter grey lighten-3 text-center" style="color:#616161;">
-                <img src="/static/img/footer1616.png"><br />
-                Copyright ©2017 Fakultas Ilmu Komputer<br />
-                <a href="//apps.cs.ui.ac.id" class="fa fa-globe"></a>
-                <a href="//twitter.com/FASILKOM_UI" class="fab fa-twitter"></a>
-                <a href="//facebook.com/groups/6084376634/" class="fab fa-facebook"></a>
-            </div>
-            <!-- /. footer section 1 -->
-            <!-- Footer Section 2 -->
-            <div class="mastfoot black">
-                <span><i class="fa fa-envelope"></i> ITFasilkom[at]cs.ui.ac.id </span>
-                <span><i class="fa fa-phone"></i> 2206</span>
-                <span><i class="fa fa-building"></i> Fasilkom B-Building, 5th Floor </span>
-            </div>
-            <!-- /. footer section 2 -->
-        </div>
-    </footer>
-    <!-- /. Footer -->
-    <script type="text/javascript" src="https://desain.cs.ui.ac.id/static/vendors/raphael-min.js"></script>
-    <script type="text/javascript" src="https://desain.cs.ui.ac.id/static/js/vendor/jquery-1.10.1.js"></script>
-    <script type="text/javascript" src="https://desain.cs.ui.ac.id/static/js/index.js"></script>
-    <script type="text/javascript" src="https://desain.cs.ui.ac.id/static/js/clipboard.min.js"></script>
-    <script type="text/javascript" src="https://desain.cs.ui.ac.id/static/js/compiled.min.js"></script>
-</body>
-<!-- /. Body -->
+{% include "footer.html" %}
 </html>

@@ -49,12 +49,19 @@ FLASK
 
 ### Version Control
 
-GITHUB
+GITHUB, GITLAB CSUI
 
 ### NEED TO LEARN
 
 1. Simpan gambar di DB (flask)
 2. Pagination (flask)
+3. dynamic input untuk kirim surat sakit(tanggal izin, nama matkul yang izin dan dosennya)
+
+## TODO NEXT
+1. Front end detail surat sakit
+2. database
+3. fungsi daftar surat
+
 
 ## Fitur
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "header.html" %}
+    <Title>Login SISUKIT</Title>
+    <!-- main of your body -->
+    <main>
+        <!-- Section body starts Here -->
+        <div class="body-wrapper bs-docs-section clearfix ">
+
+            <!-- content head ;Title and short link/ breadcrumb -->
+            <div>
+                <div class="header">
+                    <div class="text-center">
+                        <h1>Selamat Datang di SISUKIT</h1>
+                        <h1>Silahkan Login</h1>
+                    </div>
+                </div>
+                <!-- /head content -->
+                <!-- Content starts Here -->
+                <div class="container">
+                    <div class="text-center">
+                    
+                    <form action="" method="post">
+                        <input type="text" placeholder="Username SSO" name="username" value="{{request.form.username}}">
+                        <input type="password" placeholder="Password" name="password" value="{{request.form.password}}">
+                        <input class="btn btn-default" type="submit" value="Login">
+                    </form>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.Content -->
+
+        </div>
+        <!-- /. Section body -->
+    </main>
+    <!-- /. main -->
+
+
+{% include "footer.html" %}
+</html>
