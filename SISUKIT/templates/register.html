@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "header.html" %}
+
+<Title>Registrasi Pengguna</Title>
+    <!-- main of your body -->
+    <main>
+        <!-- Section body starts Here -->
+        <div class="body-wrapper bs-docs-section clearfix ">
+
+            <!-- content head ;Title and short link/ breadcrumb -->
+            <div>
+                <div class="header">
+                    <div class="text-center">
+                        <h1>Registrasi Pengguna</h1>
+                        <h1>Silahkan Mengisi Formulir</h1>
+                    </div>
+                </div>
+                <!-- /head content -->
+                <!-- Content starts Here -->
+                <div class="container">
+                    <div class="text-center">
+                    
+                        <form action="" method="post">
+                            <label for="username">Username</label>
+                            <input type="text" placeholder="Username SSO" name="username" required>
+                            <label for="password">Password</label>
+                            <input type="password" placeholder="Password" name="password" required>
+                            <label for="role">Peran Pengguna</label>
+                            <select name="role" required>
+                                <option value="mahasiswa">Mahasiswa</option>
+                                <option value="sekre">Sekretariat</option>
+                            </select>
+                            <input class="btn btn-default" type="submit" value="Register">
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.Content -->
+
+        </div>
+        <!-- /. Section body -->
+    </main>
+    <!-- /. main -->
+
+{% include "footer.html" %}
+</html>

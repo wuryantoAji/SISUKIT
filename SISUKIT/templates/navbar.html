@@ -7,7 +7,7 @@
         <div class="navbar-wrapper">
             <div class="container-fullwidth">
                 <nav class="navbar mast-nav-default navbar-static-top fixed-top" id="main-navbar">
-                    <div class="bg-header"><img src="C:\Users\Lenovo\Documents\OSSD\SISUKIT\Aset\logo-vertikal-hitam.png"></div>
+                    <div class="bg-header"><img src="/static/logo-vertikal-hitam.png"></div>
                     <div class="container-global">
                         <div class="navbar-header">
                             <button aria-controls="navbar" aria-expanded="false" class=" navbar-toggle collapsed"
@@ -20,10 +20,17 @@
                         <div class="navbar-collapse collapse nav-flex-icons ml-auto" id="navbar">
                             <ul class="nav navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/faq">Daftar Surat Sakit</a>
+                                    {% if list_param[1] == 'mahasiswa' %}
+                                        <a class="nav-link" href="/sisukit/mahasiswa/listSuratSakit">Daftar Surat Sakit</a>
+                                    {% endif %}
+                                    {% if list_param[1] == 'sekre' %}
+                                        <a class="nav-link" href="/sisukit/sekre/listSuratSakit">Daftar Surat Sakit</a>
+                                    {% endif %}
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/faq">Kirim Surat Sakit</a>
+                                    {% if list_param[1] == 'mahasiswa' %}
+                                        <a class="nav-link" href="/sisukit/mahasiswa/kirimSuratSakit">Kirim Surat Sakit</a>
+                                    {% endif %}
                                 </li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right" style="padding-right:20px">
@@ -31,14 +38,11 @@
                                 <li class="dropdown nav-item">
                                     <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle nav-link"
                                        data-toggle="dropdown" href="#" role="button">
-                                        aji.wuryanto<span class="caret"></span>
+                                        {{ list_param[0] }}<span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="#">Profile</a>
-                                        </li>
-                                        <li>
-                                            <a href="/csauth/logout/">Logout</a>
+                                            <a href="/auth/logout">Logout</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -52,3 +56,6 @@
         <!-- /.Navbar -->
     </header>
     <!-- /. header -->
+    <script>
+
+    </script>

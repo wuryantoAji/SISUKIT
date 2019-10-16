@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS surat_sakit;
+DROP TABLE IF EXISTS detail_surat_sakit;
 
 CREATE TABLE user (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -17,9 +18,14 @@ CREATE TABLE surat_sakit(
     status_surat_sakit TEXT NOT NULL,
     nama_penyakit TEXT,
     tanggal_izin DATE,
-    daftar_mata_kuliah_izin TEXT,
-    daftar_dosen TEXT,
     disetujui_oleh TEXT,
     ditolak_oleh TEXT,
     tanggal_pengubahan_status DATE NOT NULL 
 );
+
+CREATE TABLE detail_surat_sakit(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_surat_sakit INTEGER NOT NULL,
+    mata_kuliah_izin TEXT NOT NULL,
+    nama_dosen_izin TEXT NOT NULL
+)

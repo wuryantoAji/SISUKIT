@@ -19,18 +19,19 @@
                 <!-- /head content -->
                 <!-- Content starts Here -->
                 <div class="container">
-                    <div class="text-center">
+                    <div class="text-left">
                     
                     <form action="" method="post">
-                        <input type="date" name="tanggal_submit_surat" placeholder="Tanggal Submit Surat Sakit" value="{{request.form.tanggal_submit}}">
-                        
-                        <input type="text" name="nama_penyakit" placeholder="Nama Penyakit" value="{{request.form.nama_penyakit}}">
-                        
+                        <label for="tanggal_submit">Tanggal Sakit</label>
+                        <input type="date" name="tanggal_submit" placeholder="Tanggal Submit" value="{{ list_param[2] }}" disabled>
+                        <label for="nama_penyakit">Nama Penyakit</label>
+                        <input type="text" name="nama_penyakit" placeholder="Nama Penyakit" required>
                         <div>
-                            <input type="date" name="tanggal_izin" placeholder="Tanggal Izin" value="{{request.form.tanggal_izin}}">
+                            <label for="tanggal_izin">Tanggal Izin</label>
+                            <input type="date" name="tanggal_izin" placeholder="Tanggal Izin" required>
                                 <div>
-                                    <input type="text" name="mata_kuliah_izin" placeholder="Mata Kuliah Izin" value="{{request.form.nama_penyakit}}">
-                                    <input type="text" name="dosen_mata_kuliah" placeholder="Dosen Mata Kuliah" value="{{request.form.nama_penyakit}}">
+                                    <input type="text" name="mata_kuliah_izin" placeholder="Mata Kuliah Izin" required>
+                                    <input type="text" name="dosen_mata_kuliah" placeholder="Dosen Mata Kuliah" required>
                                 </div>
                         </div>
 

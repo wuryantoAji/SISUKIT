@@ -21,8 +21,10 @@
                     <div class="text-center">
                     
                     <form action="" method="post">
-                        <input type="text" placeholder="Username SSO" name="username" value="{{request.form.username}}">
-                        <input type="password" placeholder="Password" name="password" value="{{request.form.password}}">
+                        <label for="username">Username</label>
+                        <input type="text" placeholder="Username SSO" name="username" required>
+                        <label for="password">Password</label>
+                        <input type="password" placeholder="Password" name="password" required>
                         <input class="btn btn-default" type="submit" value="Login">
                     </form>
 
