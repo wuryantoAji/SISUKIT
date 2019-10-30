@@ -81,6 +81,7 @@ def login():
             session['user_id'] = user['id']
             session['user_name'] = user['username']
             session['role'] = user['role']
+            session['state'] = True
             if user['role'] == 'mahasiswa':
                 return redirect(url_for('sisukit.list_surat_sakit_mahasiswa'))
             elif user['role'] == 'sekre':

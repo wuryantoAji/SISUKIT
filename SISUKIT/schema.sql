@@ -17,10 +17,10 @@ CREATE TABLE surat_sakit(
     surat_sakit_mahasiswa TEXT NOT NULL,
     status_surat_sakit TEXT NOT NULL,
     nama_penyakit TEXT,
-    tanggal_izin DATE,
+    tanggal_izin DATE NOT NULL,
     disetujui_oleh TEXT,
     ditolak_oleh TEXT,
-    tanggal_pengubahan_status DATE NOT NULL 
+    tanggal_pengubahan_status DATE  
 );
 
 CREATE TABLE detail_surat_sakit(

@@ -24,21 +24,23 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Tanggal</th>
-                                    <th>Nama Penyakit</th>
-                                    <th>Aksi</th>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Tanggal</th>
+                                    <th scope="col">Nama Penyakit</th>
+                                    <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            {% for surat in list_param[2] %}
                                 <tr>
-                                    <td>1</td>
-                                    <td>09-10-2019</td>
-                                    <td>diare</td>
+                                    <td>{{ surat[0] }}</td>
+                                    <td>{{ surat.tanggal_upload }}</td>
+                                    <td>{{ surat.nama_penyakit}}</td>
                                     <td>
-                                        <button>Detail</button>
+                                        <a class="nav-link" href="/sisukit/mahasiswa/detilSuratSakit/{{surat.id}}">Detail</a>
                                     </td>
                                 </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
 

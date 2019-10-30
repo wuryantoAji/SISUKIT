@@ -22,15 +22,17 @@
                     <div class="text-left">
                     
                     <form action="" method="post">
-                        <label for="tanggal_submit">Tanggal Sakit</label>
-                        <input type="date" name="tanggal_submit" placeholder="Tanggal Submit" value="{{ list_param[2] }}" disabled>
+                        <label for="tanggal_submit">Tanggal Submit</label>
+                        <input type="date" name="tanggal_submit" placeholder="Tanggal Submit" value="{{ list_param[2] }}" readonly="{{ list_param[2] }}">
                         <label for="nama_penyakit">Nama Penyakit</label>
                         <input type="text" name="nama_penyakit" placeholder="Nama Penyakit" required>
                         <div>
                             <label for="tanggal_izin">Tanggal Izin</label>
                             <input type="date" name="tanggal_izin" placeholder="Tanggal Izin" required>
                                 <div>
+                                    <label for="mata_kuliah_izin">Mata Kuliah Izin</label>
                                     <input type="text" name="mata_kuliah_izin" placeholder="Mata Kuliah Izin" required>
+                                    <label for="dosen_mata_kuliah">Dosen Izin</label>
                                     <input type="text" name="dosen_mata_kuliah" placeholder="Dosen Mata Kuliah" required>
                                 </div>
                         </div>

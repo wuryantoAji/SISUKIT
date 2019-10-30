@@ -77,6 +77,6 @@ Aji Wuryanto
 ## PROJECT Mata Kuliah OSSD
 
 
-set FLASK_APP=flaskr
+set FLASK_APP=SISUKIT
 set FLASK_ENV=development
 flask run
