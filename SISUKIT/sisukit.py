@@ -21,7 +21,7 @@ def dict_factory(cursor,row):
     return d
 
 def get_session_state():
-    if 'user_id' in session:
+    if 'user_login' in session:
         return True
     else:
         return False

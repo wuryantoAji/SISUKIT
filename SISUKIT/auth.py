@@ -1,9 +1,9 @@
-from flask import Flask
 from flask import (
-    Blueprint, flash, g, redirect, render_template, request, session, url_for
+    Flask, Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 from SISUKIT.db import get_db
+from SISUKIT.sso.csui_helper import get_access_token, verify_user
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -69,31 +69,49 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        db = get_db()
-        error = None
-        user = db.execute(
-            'SELECT * FROM user WHERE username = ?', (username,)
-        ).fetchone()
 
-        if user is None:
-            error = 'Username salah'
-        elif not check_password_hash(user['password'], password):
-            error = 'Password salah'
-
-        if error is None:
-            session.clear()
-            session['user_id'] = user['id']
-            session['user_name'] = user['username']
-            session['role'] = user['role']
-            session['state'] = True
-            if user['role'] == 'mahasiswa':
+        access_token = get_access_token(username,password)
+        if access_token is not None:
+            ver_user=verify_user(access_token)
+            kode_identitas = ver_user['identity_number']
+            role = ver_user['role']
+            session['user_login'] = username
+            session['access_token'] = access_token
+            session['kode_identitas'] = kode_identitas
+            session['role'] = role
+            if role == 'mahasiswa':
                 return redirect(url_for('sisukit.list_surat_sakit_mahasiswa'))
-            elif user['role'] == 'sekre':
-                return redirect(url_for('sisukit.list_surat_sakit_sekre'))
+            else :
+                return redirect(url_for('sisukit.list_surat_sakit_sekre'))  
+        else:
+            render_template('login.html')
+
+    #     db = get_db()
+    #     error = None
+    #     user = db.execute(
+    #         'SELECT * FROM user WHERE username = ?', (username,)
+    #     ).fetchone()
+
+    #     if user is None:
+    #         error = 'Username salah'
+    #     elif not check_password_hash(user['password'], password):
+    #         error = 'Password salah'
+
+    #     if error is None:
+    #         session.clear()
+    #         session['user_id'] = user['id']
+    #         session['user_name'] = user['username']
+    #         session['role'] = user['role']
+    #         session['state'] = True
+    #         if user['role'] == 'mahasiswa':
+    #             return redirect(url_for('sisukit.list_surat_sakit_mahasiswa'))
+    #         elif user['role'] == 'sekre':
+    #             return redirect(url_for('sisukit.list_surat_sakit_sekre'))
             
 
-        flash(error)
+    #     flash(error)
 
+    
     return render_template('login.html')
 
 @bp.route('/logout')

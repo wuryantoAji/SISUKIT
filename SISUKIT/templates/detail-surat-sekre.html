@@ -20,7 +20,7 @@
                     <h1>Nama Mahasiswa : {{ surat_sakit[0].nama_mahasiswa }}</h1>
                     <h1>Tanggal Upload : {{ surat_sakit[0].tanggal_upload }} </h1>
                     <h1>Nama Penyakit : {{ surat_sakit[0].nama_penyakit }}</h1>
-                    <h1>Dokumen Surat Sakit : link Here</h1>
+                    <h1>Dokumen Surat Sakit : <a href="/sisukit/{{ surat_sakit[0].surat_sakit_mahasiswa }}" value="{{ surat_sakit[0].surat_sakit_mahasiswa }}"> Link </a> </h1>
                     <h1>Status Surat Sakit : {{ surat_sakit[0].status_surat_sakit }}</h1>
 
                     <table>
