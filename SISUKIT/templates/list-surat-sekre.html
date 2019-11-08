@@ -24,32 +24,27 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Tanggal</th>
-                                    <th>Nama Mahasiswa</th>
-                                    <th>Nama Penyakit</th>
-                                    <th>Aksi</th>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Tanggal</th>
+                                    <th scope="col">Nama Mahasiswa</th>
+                                    <th scope="col">Nama Penyakit</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            {% for surat in list_param[2] %}
                                 <tr>
-                                    <td>1</td>
-                                    <td>09-10-2019</td>
-                                    <td>bambang</td>
-                                    <td>diare</td>
+                                    <td>{{ loop.index }}</td>
+                                    <td>{{ surat.tanggal_upload }}</td>
+                                    <td>{{ surat.nama_mahasiswa }}</td>
+                                    <td>{{ surat.nama_penyakit }}</td>
+                                    <td>{{ surat.status_surat_sakit }}</td>
                                     <td>
-                                        <button>Detail</button>
+                                        <a class="nav-link" href="/sisukit/sekre/detilSuratSakit/{{surat.id}}">Detail</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>09-10-2019</td>
-                                    <td>herman</td>
-                                    <td>asma</td>
-                                    <td>
-                                        <button>Detail</button>
-                                    </td>
-                                </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
 

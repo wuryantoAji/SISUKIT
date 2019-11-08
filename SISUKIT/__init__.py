@@ -3,6 +3,7 @@ from flask import Flask
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
+UPLOAD_FOLDER = 'Surat_Sakit/'
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -10,6 +11,7 @@ def create_app(test_config=None):
         SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
     )
+    app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
     if test_config is None:
         app.config.from_pyfile('config.py', silent=True)

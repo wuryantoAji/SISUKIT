@@ -28,6 +28,7 @@ def load_logged_in_user():
             'SELECT * FROM user WHERE id = ?',(user_id,)
         ).fetchone()
 
+#
 @bp.route('/register', methods=['GET','POST'])
 def register():
     if request.method == 'POST':
@@ -54,11 +55,14 @@ def register():
                 (username,generate_password_hash(password),role)
             )
             db.commit()
+            db.close()
             return redirect(url_for('auth.login'))
-
+        
         flash(error)
     
     return render_template('register.html')
+#
+
 
 @bp.route('/login', methods=['GET','POST'])
 def login():

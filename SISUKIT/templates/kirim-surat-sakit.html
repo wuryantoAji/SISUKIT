@@ -21,23 +21,46 @@
                 <div class="container">
                     <div class="text-left">
                     
-                    <form action="" method="post">
+                    <form action="" method="post" enctype=multipart/form-data>
                         <label for="tanggal_submit">Tanggal Submit</label>
                         <input type="date" name="tanggal_submit" placeholder="Tanggal Submit" value="{{ list_param[2] }}" readonly="{{ list_param[2] }}">
                         <label for="nama_penyakit">Nama Penyakit</label>
                         <input type="text" name="nama_penyakit" placeholder="Nama Penyakit" required>
-                        <div>
-                            <label for="tanggal_izin">Tanggal Izin</label>
-                            <input type="date" name="tanggal_izin" placeholder="Tanggal Izin" required>
-                                <div>
-                                    <label for="mata_kuliah_izin">Mata Kuliah Izin</label>
-                                    <input type="text" name="mata_kuliah_izin" placeholder="Mata Kuliah Izin" required>
-                                    <label for="dosen_mata_kuliah">Dosen Izin</label>
-                                    <input type="text" name="dosen_mata_kuliah" placeholder="Dosen Mata Kuliah" required>
-                                </div>
-                        </div>
+                        
 
-                        <input class="btn btn-default" type="submit" value="Submit Surat Sakit">
+
+                        <div>
+                            <div id="tanggal_izin">
+                                <fieldset class="form-group">
+                                    <div>
+                                    <label for="tanggal_izin">Tanggal Izin</label>
+                                    <!-- <input type="button" id="more_field_2" onclick="add_field_2();" value="tambah hari" /> -->
+                                    </div> 
+                                    <input id="izin0" type="date" name="tanggal_izin" placeholder="Tanggal Izin" required>
+                                    <input type="button" id="more_field_1" onclick="add_field_1();" value="tambah dosen dan mata kuliah" />
+                                        <div id="dosen_dan_mata_kuliah">
+                                            <fieldset class="form-group">
+                                                <label for="mata_kuliah_izin">Mata Kuliah Izin</label>
+                                                <input id="matkul0" type="text" name="mata_kuliah_izin" placeholder="Mata Kuliah Izin" required>
+                                                <label for="dosen_mata_kuliah">Dosen Izin</label>
+                                                <input id="dosen0" type="text" name="dosen_mata_kuliah" placeholder="Dosen Mata Kuliah" required>  
+                                            </fieldset>
+                                        <div>   
+                                </fieldset>
+                            </div>    
+                        </div>
+                        
+                        
+                        
+                        
+                        <br>
+                        <label for="upload_surat">Dokumen Surat Sakit</label>
+                        <input type="file" name="dokumen_surat_sakit" required>
+                        <br>
+                        <input class="btn btn-default" type="submit" value="Unggah Surat Sakit">
+
+
+
                     </form>
 
                     </div>
@@ -51,7 +74,25 @@
     <!-- /. main -->
 
 
-
-
 {% include "footer.html" %}
 </html>
+<script>
+    var count1 = 0
+    var count2 = 0
+    function add_field_1(){
+        count1++
+        var county = count1.toString();
+        var objTo = document.getElementById('dosen_dan_mata_kuliah')
+        var divTest = document.createElement("div")
+        divTest.innerHTML = '<label for="mata_kuliah_izin">Mata Kuliah Izin</label><input id="matkul'+count1+'" type="text" name="mata_kuliah_izin" placeholder="Mata Kuliah Izin" required><label for="dosen_mata_kuliah">Dosen Izin</label><input id="dosen'+count1+'" type="text" name="dosen_mata_kuliah" placeholder="Dosen Mata Kuliah" required>';
+        objTo.appendChild(divTest)
+    }
+    function add_field_2(){
+        count2++
+        var county = count2.toString();
+        var objTo = document.getElementById('tanggal_izin')
+        var divTest = document.createElement("div")
+        divTest.innerHTML = '';
+
+    }
+</script>

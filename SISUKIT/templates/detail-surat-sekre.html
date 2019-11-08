@@ -9,20 +9,19 @@
         <!-- Section body starts Here -->
         <div class="body-wrapper bs-docs-section clearfix ">
             <!-- content head ;Title and short link/ breadcrumb -->
-            <div class="header">
-                <div class="text-left">
-                    <h1>Surat Sakit Mahasiswa</h1>
-                </div>
-            </div>
             <!-- /head content -->
             <!-- Content starts Here -->
             <div class="container">
+            {% set surat_sakit = list_param[2] %}
+            {% set detail_surat = list_param[3] %}    
+                
                 <div class="text-left">
-                    <h1>Nama : Aji Wuryanto</h1>
-                    <h1>Tanggal Upload : 11-09-2019</h1>
-                    <h1>Nama Penyakit : diare</h1>
+                    <h1>Surat Sakit Mahasiswa</h1>
+                    <h1>Nama Mahasiswa : {{ surat_sakit[0].nama_mahasiswa }}</h1>
+                    <h1>Tanggal Upload : {{ surat_sakit[0].tanggal_upload }} </h1>
+                    <h1>Nama Penyakit : {{ surat_sakit[0].nama_penyakit }}</h1>
                     <h1>Dokumen Surat Sakit : link Here</h1>
-                    <h1>Status Surat Sakit : Diproses</h1>
+                    <h1>Status Surat Sakit : {{ surat_sakit[0].status_surat_sakit }}</h1>
 
                     <table>
                             <thead>
@@ -34,19 +33,23 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            {% for detail in detail_surat %}
                                 <tr>
-                                    <td>1</td>
-                                    <td>09-10-2019</td>
-                                    <td>Jarkomdat</td>
-                                    <td>Bambuank</td>
+                                    <td>{{ loop.index }}</td>
+                                    <td>{{ surat_sakit[0].tanggal_upload }}</td>
+                                    <td>{{ detail.mata_kuliah_izin }}</td>
+                                    <td>{{ detail.nama_dosen_izin }}</td>
                                 </tr>
+                            {% endfor %}                            
                             </tbody>
                         </table>
-                    
-                    <div>
-                        <button>Setujui Surat Sakit</button>
-                        <button>Tolak Surat Sakit</button>
-                    </div>
+                        <br>
+                        <br>
+                        
+                        <div>
+                            <a class="nav-link" href="/sisukit/sekre/detilSuratSakit/terima/{{surat_sakit[0].id}}">Terima Surat Sakit</a>
+                            <a class="nav-link" href="/sisukit/sekre/detilSuratSakit/tolak/{{surat_sakit[0].id}}">Tolak Surat Sakit</a>
+                        </div>
                     
                 </div>
             </div>

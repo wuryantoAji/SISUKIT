@@ -1,3 +1,5 @@
 /venv/
 /.vscode/
 /SISUKIT/__pycache__/
+/instance/
+/SISUKIT/Surat_Sakit/*

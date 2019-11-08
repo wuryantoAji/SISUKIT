@@ -27,15 +27,17 @@
                                     <th scope="col">No</th>
                                     <th scope="col">Tanggal</th>
                                     <th scope="col">Nama Penyakit</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                             {% for surat in list_param[2] %}
                                 <tr>
-                                    <td>{{ surat[0] }}</td>
+                                    <td>{{ loop.index }}</td>
                                     <td>{{ surat.tanggal_upload }}</td>
-                                    <td>{{ surat.nama_penyakit}}</td>
+                                    <td>{{ surat.nama_penyakit }}</td>
+                                    <td>{{ surat.status_surat_sakit }}</td>
                                     <td>
                                         <a class="nav-link" href="/sisukit/mahasiswa/detilSuratSakit/{{surat.id}}">Detail</a>
                                     </td>
