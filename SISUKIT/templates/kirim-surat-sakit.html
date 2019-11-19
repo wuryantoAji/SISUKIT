@@ -38,14 +38,15 @@
                                     </div> 
                                     <input id="izin0" type="date" name="tanggal_izin" placeholder="Tanggal Izin" required>
                                     <input type="button" id="more_field_1" onclick="add_field_1();" value="tambah dosen dan mata kuliah" />
+                                    <input type="button" id="less_field_1" onclick="decrease_field();" value="kurangi dosen dan mata kuliah" />
                                         <div id="dosen_dan_mata_kuliah">
-                                            <fieldset class="form-group">
+                                            <div id="dosen_dan_mata_kuliah0">
                                                 <label for="mata_kuliah_izin">Mata Kuliah Izin</label>
                                                 <input id="matkul0" type="text" name="mata_kuliah_izin" placeholder="Mata Kuliah Izin" required>
                                                 <label for="dosen_mata_kuliah">Dosen Izin</label>
                                                 <input id="dosen0" type="text" name="dosen_mata_kuliah" placeholder="Dosen Mata Kuliah" required>  
-                                            </fieldset>
-                                        <div>   
+                                            </div>
+                                        </div>   
                                 </fieldset>
                             </div>    
                         </div>
@@ -80,12 +81,21 @@
     var count1 = 0
     var count2 = 0
     function add_field_1(){
-        count1++
         var county = count1.toString();
         var objTo = document.getElementById('dosen_dan_mata_kuliah')
+        count1++
         var divTest = document.createElement("div")
         divTest.innerHTML = '<label for="mata_kuliah_izin">Mata Kuliah Izin</label><input id="matkul'+count1+'" type="text" name="mata_kuliah_izin" placeholder="Mata Kuliah Izin" required><label for="dosen_mata_kuliah">Dosen Izin</label><input id="dosen'+count1+'" type="text" name="dosen_mata_kuliah" placeholder="Dosen Mata Kuliah" required>';
+        divTest.setAttribute("id","dosen_dan_mata_kuliah"+count1);
         objTo.appendChild(divTest)
+    }
+    function decrease_field(){
+        if(count1>0){
+            var county = count1.toString();
+            var objTo = document.getElementById('dosen_dan_mata_kuliah'+count1)
+            objTo.remove()
+            count1--
+        }
     }
     function add_field_2(){
         count2++

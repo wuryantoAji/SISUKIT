@@ -21,7 +21,7 @@ def dict_factory(cursor,row):
     return d
 
 def get_session_state():
-    if 'user_login' in session:
+    if 'access_token' in session:
         return True
     else:
         return False
@@ -142,6 +142,7 @@ def list_surat_sakit_mahasiswa():
 
     nama_user = session['user_name']
     role_user = session['role']
+    npm = session['kode_identitas']
 
     if(role_user != 'mahasiswa'):
         flash('Halaman tidak bisa diakses oleh sekretariat')
@@ -150,7 +151,7 @@ def list_surat_sakit_mahasiswa():
     list_surat = []
     db = get_db()
     surat = db.execute(
-        'SELECT * FROM surat_sakit WHERE nama_mahasiswa=?',(nama_user,))#now by username then by NPM
+        'SELECT * FROM surat_sakit WHERE npm=?',(npm,))#now by username then by NPM
     list_surat = surat
     list_param = [nama_user,role_user,list_surat]
     return render_template('list-surat-mahasiswa.html', list_param = list_param)
@@ -163,6 +164,7 @@ def kirim_surat_sakit():
     today = date.today()
     nama_user = session['user_name']
     role_user = session['role']
+    npm = session['kode_identitas']
 
     if(role_user != 'mahasiswa'):
         flash('Halaman tidak bisa diakses oleh sekretariat')
@@ -193,10 +195,10 @@ def kirim_surat_sakit():
         
         if file and allowed_file(file.filename):
             extension = file.filename.rsplit('.',1)[1].lower()
-            filename = secure_filename(nama_user+nama_penyakit+tanggal_izin)
+            filename = secure_filename(nama_user+npm+nama_penyakit+tanggal_izin)
             surat = db.execute(
                 'INSERT INTO surat_sakit (nama_mahasiswa, npm, tanggal_upload, surat_sakit_mahasiswa, status_surat_sakit, nama_penyakit, tanggal_izin) VALUES (?,?,?,?,?,?,?)',
-                (nama_user, 10, tanggal_submit,filename+'.'+extension,'submitted',nama_penyakit,tanggal_izin)#change to real NPM after connect to UI API
+                (nama_user, npm, tanggal_submit,filename+'.'+extension,'submitted',nama_penyakit,tanggal_izin)#change to real NPM after connect to UI API
             )   
             id_surat = surat.lastrowid
 
