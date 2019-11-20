@@ -51,18 +51,6 @@ FLASK
 
 GITHUB, GITLAB CSUI
 
-### NEED TO LEARN
-
-1. Simpan gambar di DB (flask)
-2. Pagination (flask)
-3. dynamic input untuk kirim surat sakit(tanggal izin, nama matkul yang izin dan dosennya)
-
-## TODO NEXT
-1. Front end detail surat sakit
-2. database
-3. fungsi daftar surat
-
-
 ## Fitur
 
 1. Mahasiswa dapat mengirim surat sakit
@@ -70,13 +58,24 @@ GITHUB, GITLAB CSUI
 3. Sekretariat dapat melihat seluruh surat sakit yang pernah dikirim
 4. Sekretariat dapat menyetujui/menolak surat sakit yang dikirim
 
+## License
+Copyright (C) 2019
+by Aji Wuryanto
+
+Project:
+https://github.com/wuryantoAji/SISUKIT
+
+also on
+https://gitlab.cs.ui.ac.id/wuryanto.aji/sisukit
+
+Find the GNU General Public License V3 at:
+https://github.com/wuryantoAji/SISUKIT/blob/master/License.md
+
+or
+https://gitlab.cs.ui.ac.id/wuryanto.aji/sisukit/blob/master/License.md
+
 ## Authors
 
 Aji Wuryanto
 
 ## PROJECT Mata Kuliah OSSD
-
-
-set FLASK_APP=SISUKIT
-set FLASK_ENV=development
-flask run
