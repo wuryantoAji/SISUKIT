@@ -32,4 +32,4 @@ def create_app(test_config=None):
     app.register_blueprint(sisukit.bp)
 
 
-    return redirect(url_for('auth.login'))
+    return app
