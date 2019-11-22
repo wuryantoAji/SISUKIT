@@ -14,7 +14,16 @@
             <div class="container">
             {% set surat_sakit = list_param[2] %}
             {% set detail_surat = list_param[3] %}    
-                
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class=flashes>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+                {% endwith %}
+                {% block body %}{% endblock %}
                 <div class="text-left">
                     <h1>Surat Sakit Mahasiswa</h1>
                     <h1>Nama Mahasiswa : {{ surat_sakit[0].nama_mahasiswa }}</h1>
@@ -25,7 +34,7 @@
 
                     <table>
                             <thead>
-                                <tr>
+                                <tr style="white-space:nowrap;">
                                     <th>No</th>
                                     <th>Tanggal Izin</th>
                                     <th>Nama Mata Kuliah</th>
@@ -34,7 +43,7 @@
                             </thead>
                             <tbody>
                             {% for detail in detail_surat %}
-                                <tr>
+                                <tr style="white-space:nowrap;">
                                     <td>{{ loop.index }}</td>
                                     <td>{{ surat_sakit[0].tanggal_upload }}</td>
                                     <td>{{ detail.mata_kuliah_izin }}</td>

@@ -105,7 +105,7 @@ def terima_surat_sakit(id):
                   WHERE id=?;""",
                ('Diterima',nama_user+'-'+role_user,'-',today,id))
     db.commit()
-  
+    flash("Surat sakit berhasil diterima")
     list_param = [nama_user,role_user]
 
     return redirect(url_for('sisukit.detil_surat_sakit_sekre',id=id))
@@ -130,7 +130,7 @@ def tolak_surat_sakit(id):
                   WHERE id=?;""",
                ('Ditolak','-',nama_user+'-'+role_user,today,id))
     db.commit()
-  
+    flash("Surat sakit berhasil ditolak")
     list_param = [nama_user,role_user]
 
     return redirect(url_for('sisukit.detil_surat_sakit_sekre',id=id))       

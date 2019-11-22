@@ -23,7 +23,7 @@
                     
                         <table>
                             <thead>
-                                <tr>
+                                <tr style="white-space:nowrap;">
                                     <th scope="col">No</th>
                                     <th scope="col">Tanggal</th>
                                     <th scope="col">Nama Mahasiswa</th>
@@ -34,7 +34,7 @@
                             </thead>
                             <tbody>
                             {% for surat in list_param[2] %}
-                                <tr>
+                                <tr style="white-space:nowrap;">
                                     <td>{{ loop.index }}</td>
                                     <td>{{ surat.tanggal_upload }}</td>
                                     <td>{{ surat.nama_mahasiswa }}</td>
