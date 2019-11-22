@@ -3,6 +3,7 @@ from flask import Flask
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
+from . import auth
 UPLOAD_FOLDER = 'Surat_Sakit/'
 
 def create_app(test_config=None):
@@ -31,4 +32,4 @@ def create_app(test_config=None):
     app.register_blueprint(sisukit.bp)
 
 
-    return app
+    return redirect(url_for('auth.login'))
