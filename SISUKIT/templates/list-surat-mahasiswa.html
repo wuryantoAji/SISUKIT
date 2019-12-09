@@ -2,7 +2,19 @@
 <html lang="en">
 {% include "header.html" %}
 {% include "navbar.html" %}
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+    table {
+        width: 100%;
+    }
 
+    th {
+
+        text-align: center;
+    }
+</style>
     <Title>Daftar Surat</Title>
     <!-- main of your body -->
     <main>
@@ -21,14 +33,14 @@
                 <div class="container">
                     <div class="text-center">
                     
-                        <table>
+                        <table id="myTable">
                             <thead>
                                 <tr>
-                                    <th scope="col">No</th>
-                                    <th scope="col">Tanggal</th>
-                                    <th scope="col">Nama Penyakit</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Aksi</th>
+                                    <th>No</th>
+                                    <th>Tanggal</th>
+                                    <th>Nama Penyakit</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -59,3 +71,4 @@
 
 {% include "footer.html" %}
 </html>
+

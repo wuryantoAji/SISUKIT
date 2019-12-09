@@ -2,7 +2,20 @@
 <html lang="en">
 {% include "header.html" %}
 {% include "navbar.html" %}
-
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+    table {
+        width: 50%;
+    }
+    th {
+        text-align: center;
+    }
+    td {
+        text-align: center;
+    }
+</style>
     <Title>Detail Surat Mahasiswa</Title>
     <!-- main of your body -->
     <main>
@@ -13,7 +26,8 @@
             <!-- Content starts Here -->
             <div class="container">
             {% set surat_sakit = list_param[2] %}
-            {% set detail_surat = list_param[3] %}    
+            {% set detail_surat = list_param[3] %}
+            <meta id="my-data" data-name="{{surat_sakit[0].id}}" >    
                 {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     <ul class=flashes>
@@ -55,9 +69,14 @@
                         <br>
                         <br>
                         
-                        <div>
-                            <a class="nav-link" href="/sisukit/sekre/detilSuratSakit/terima/{{surat_sakit[0].id}}">Terima Surat Sakit</a>
-                            <a class="nav-link" href="/sisukit/sekre/detilSuratSakit/tolak/{{surat_sakit[0].id}}">Tolak Surat Sakit</a>
+                        <div id="aksi_surat_sakit" style="display:flex;">
+                            <div id="penerimaan_surat_sakit">
+                                <input type="button" onclick="location.href='/sisukit/sekre/detilSuratSakit/terima/{{surat_sakit[0].id}}';" value="Terima Surat Sakit" />
+                            </div>
+                            <div id="penolakan_surat_sakit">
+                                <input type="button" id="more_field_1" onclick="add_field_1();" value="Keterangan Penolakan"/>
+                            </div>
+                            
                         </div>
                     
                 </div>
@@ -71,3 +90,33 @@
 
 {% include "footer.html" %}
 </html>
+<script>
+    var count1 = 0
+    var count2 = 0
+    function add_field_1(){
+        var county = count1.toString();
+        var objTo = document.getElementById('penolakan_surat_sakit')
+        count1++
+        var divTest = document.createElement("div")
+        var idSurat = $('#my-data').data("name");
+        divTest.innerHTML = '<input type="button" id="less_field_1" onclick="decrease_field();" value="Batalkan Penolakan"/><br><form action="/sisukit/sekre/detilSuratSakit/tolak/'+idSurat+'" method="post"><label for="keterangan_penolakan">Keterangan Penolakan</label><input type="text" name="keterangan_penolakan" placeholder="Keterangan Penolakan" required><input class="btn btn-default" type="submit" value="Tolak Surat Sakit"></form>';
+        divTest.setAttribute("id",'submit_penolakan');
+        objTo.appendChild(divTest)
+        document.getElementById('more_field_1').remove()
+    }
+    function decrease_field(){
+        if(count1>0){
+            var county = count1.toString();
+            var objTo2 = document.getElementById('penolakan_surat_sakit')
+
+            var divTest = document.createElement("div")
+            divTest.innerHTML = '<input type="button" id="more_field_1" onclick="add_field_1();" value="Keterangan Penolakan"/>';
+            divTest.setAttribute("id",'penolakan_surat_sakit');
+            objTo2.appendChild(divTest)
+            
+            document.getElementById('submit_penolakan').remove()
+
+            count1--
+        }
+    }
+</script>

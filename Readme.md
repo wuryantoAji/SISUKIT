@@ -58,6 +58,14 @@ GITHUB, GITLAB CSUI
 3. Sekretariat dapat melihat seluruh surat sakit yang pernah dikirim
 4. Sekretariat dapat menyetujui/menolak surat sakit yang dikirim
 
+## Feature to Develop
+1. Hubungkan dengan API CSUI (Dosen dan Matkul)
+2. Notifikasi email ke mahasiswa jika ditolak/diterima
+3. Notifikasi ke sekre ketika ada surat baru yang di kirim
+4. Notifikasi ke dosen ketika surat sakit diterima
+5. Dashboard untuk sekretariat mengenai data surat yang masuk
+6. Menambahkan tanggal izin untuk 1 surat sakit
+
 ## License
 Copyright (C) 2019
 by Aji Wuryanto

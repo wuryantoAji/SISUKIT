@@ -91,7 +91,7 @@ def login():
 
             if user is None:
                 error = 'Username salah'
-
+            
             if password != user['password']:
                 error = 'Password salah'
 
@@ -106,6 +106,7 @@ def login():
                     return redirect(url_for('sisukit.list_surat_sakit_sekre'))
             else:
                 flash(error)
+                return render_template('login.html')
 
     
     return render_template('login.html')

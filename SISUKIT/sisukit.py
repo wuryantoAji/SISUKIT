@@ -101,9 +101,9 @@ def terima_surat_sakit(id):
     today = date.today()
     db = get_db()
     surat = db.execute("""UPDATE surat_sakit
-                  SET status_surat_sakit=?, disetujui_oleh=?, ditolak_oleh=?, tanggal_pengubahan_status=?
+                  SET status_surat_sakit=?, disetujui_oleh=?, ditolak_oleh=?, tanggal_pengubahan_status=?, keterangan=?
                   WHERE id=?;""",
-               ('Diterima',nama_user+'-'+role_user,'-',today,id))
+               ('Diterima',nama_user+'-'+role_user,'-',today,'-',id))
     db.commit()
     flash("Surat sakit berhasil diterima")
     list_param = [nama_user,role_user]
@@ -111,7 +111,7 @@ def terima_surat_sakit(id):
     return redirect(url_for('sisukit.detil_surat_sakit_sekre',id=id))
 
 
-@bp.route('/sekre/detilSuratSakit/tolak/<id>', methods=['GET'])
+@bp.route('/sekre/detilSuratSakit/tolak/<id>', methods=['GET','POST'])
 def tolak_surat_sakit(id):
     if(get_session_state() == False):
         return redirect(url_for('auth.login'))
@@ -124,11 +124,12 @@ def tolak_surat_sakit(id):
         return redirect(url_for('sisukit.list_surat_sakit_mahasiswa'))
 
     today = date.today()
+    keterangan_penolakan = request.form['keterangan_penolakan']
     db = get_db()
     surat = db.execute("""UPDATE surat_sakit
-                  SET status_surat_sakit=?, disetujui_oleh=?, ditolak_oleh=?, tanggal_pengubahan_status=?
+                  SET status_surat_sakit=?,keterangan=?, disetujui_oleh=?, ditolak_oleh=?, tanggal_pengubahan_status=?
                   WHERE id=?;""",
-               ('Ditolak','-',nama_user+'-'+role_user,today,id))
+               ('Ditolak',keterangan_penolakan,'-',nama_user+'-'+role_user,today,id))
     db.commit()
     flash("Surat sakit berhasil ditolak")
     list_param = [nama_user,role_user]

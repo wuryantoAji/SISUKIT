@@ -19,6 +19,7 @@ CREATE TABLE surat_sakit(
     status_surat_sakit TEXT NOT NULL,
     nama_penyakit TEXT,
     tanggal_izin DATE NOT NULL,
+    keterangan TEXT,
     disetujui_oleh TEXT,
     ditolak_oleh TEXT,
     tanggal_pengubahan_status DATE  

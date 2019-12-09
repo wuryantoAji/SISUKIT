@@ -2,7 +2,20 @@
 <html lang="en">
 {% include "header.html" %}
 {% include "navbar.html" %}
-
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+    table {
+        width: 50%;
+    }
+    th {
+        text-align: center;
+    }
+    td {
+        text-align: center;
+    }
+</style>
     <Title>Detail Surat Mahasiswa</Title>
     <!-- main of your body -->
     <main>
@@ -22,6 +35,8 @@
                     <h1>Nama Penyakit : {{ surat_sakit[0].nama_penyakit }}</h1>
                     <h1>Dokumen Surat Sakit : <a href="/sisukit/{{ surat_sakit[0].surat_sakit_mahasiswa }}" value="{{ surat_sakit[0].surat_sakit_mahasiswa }}"> Link </a> </h1>
                     <h1>Status Surat Sakit : {{ surat_sakit[0].status_surat_sakit }}</h1>
+                    <h1>Keterangan Surat Sakit : {{ surat_sakit[0].keterangan }}</h1>
+                    <br>
 
                     <table>
                             <thead>
