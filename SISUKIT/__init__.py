@@ -67,7 +67,7 @@ def login():
             if role == 'mahasiswa':
                 return redirect(url_for('sisukit.list_surat_sakit_mahasiswa'))
         else:
-            db = get_db()
+            db = db.get_db()
             error = None
             user = db.execute(
                 'SELECT * FROM user WHERE username = ?', (username,)
