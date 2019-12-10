@@ -3,8 +3,8 @@ from flask import (
     Flask, Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
 from werkzeug.security import check_password_hash, generate_password_hash
-from SISUKIT.db import get_db
-from SISUKIT.sso.csui_helper import get_access_token, verify_user
+from . import db
+from .sso.csui_helper import get_access_token, verify_user
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'Surat_Sakit/'
@@ -46,8 +46,6 @@ def login_required(view):
         return view(**kwargs)
     
     return wrapped_view
-
-
 
 
 @app.route('/', methods=['GET','POST'])
