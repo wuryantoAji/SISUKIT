@@ -4,7 +4,15 @@ from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
 from . import auth
+
 UPLOAD_FOLDER = 'Surat_Sakit/'
+
+app = Flask(__name__, instance_relative_config=True)
+app.config.from_mapping(
+    SECRET_KEY='dev',
+    DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
+)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
