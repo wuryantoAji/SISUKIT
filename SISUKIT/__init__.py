@@ -31,10 +31,4 @@ def create_app(test_config=None):
     app.register_blueprint(auth.bp)
     app.register_blueprint(sisukit.bp)
 
-
     return app
-
-
-@app.route('/')
-def index():
-    return render_template('login.html')
