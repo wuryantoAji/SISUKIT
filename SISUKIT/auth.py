@@ -83,6 +83,7 @@ def login():
             if role == 'mahasiswa':
                 return redirect(url_for('sisukit.list_surat_sakit_mahasiswa'))
         else:
+            print('pass sso salah')
             db = get_db()
             error = None
             user = db.execute(
@@ -91,9 +92,13 @@ def login():
 
             if user is None:
                 error = 'Username salah'
+                flash(error)
+                return render_template('login.html')
             
             if password != user['password']:
                 error = 'Password salah'
+                flash(error)
+                return render_template('login.html')
 
             if error is None:
                 session.clear()
@@ -104,9 +109,7 @@ def login():
                 if user['role'] == 'sekre':
                     print('sekre berhasil login')
                     return redirect(url_for('sisukit.list_surat_sakit_sekre'))
-            else:
-                flash(error)
-                return render_template('login.html')
+                
 
     
     return render_template('login.html')

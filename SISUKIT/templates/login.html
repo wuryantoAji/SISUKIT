@@ -19,7 +19,15 @@
                 <!-- Content starts Here -->
                 <div class="container">
                     <div class="text-center">
-                    
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <ul class=flashes style="text-align:center;">
+                                {% for message in messages %}
+                                <li>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    {% endwith %}
                     <form action="" method="post">
                         <label for="username">Username</label>
                         <input type="text" placeholder="Username SSO" name="username" required>
